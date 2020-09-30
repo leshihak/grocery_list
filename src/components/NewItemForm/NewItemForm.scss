@@ -1,0 +1,53 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    &__input {
+        width: 100%;
+        border: none;
+        font-family: 'Amatic SC', cursive;
+        font-size: 20px;
+        text-align: start;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__select {
+        font-family: 'Amatic SC', cursive;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        font-size: 25px;
+        cursor: pointer;
+        margin-top: 15px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__radio {
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+        &_item {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    }
+    &__btn {
+        background-color: black;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-size: 20px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: rgb(128, 128, 128);
+        }
+    }
+}

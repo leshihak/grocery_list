@@ -1,0 +1,25 @@
+.grosery-item {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 20px;
+    margin-top: 20px;
+    &:hover {
+        background-color: black;
+        color: white;
+        transition: linear 0.2s;
+    }
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        &_img {
+            width: 25px;
+        }
+    }
+    &__footer {
+        display: flex;
+        justify-content: space-around;
+        font-size: 15px;
+        padding: 10px;
+    }
+}

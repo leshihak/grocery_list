@@ -1,0 +1,57 @@
+.container {
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+    height: 100vh;
+    display: flex;
+    &__btn {
+        width: 100%;
+        background-color: black;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-size: 20px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: rgb(128, 128, 128);
+        }
+    }
+}
+
+.grocery-items-list {
+    width: 40%;
+    padding: 15px;
+}
+
+.grocery-item {
+    padding: 15px;
+    width: 60%;
+}
+
+.filter-items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    &__btn {
+        width: 100px;
+        background-color: black;
+        color: white;
+        font-family: 'Amatic SC', cursive;
+        font-size: 20px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            background-color: rgb(128, 128, 128);
+        }
+    }
+}
