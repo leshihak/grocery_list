@@ -8,13 +8,13 @@ const GroceryItemsList = ({
     selectItem,
     activeItemIdProp,
 }: GroceryItemsListProps): React.ReactElement => {
-    const [, setActiveNoteId] = useState(
+    const [activeItemId, setActiveItemId] = useState(
         arrayOfItems.length > 0 ? arrayOfItems[0].id : ''
     );
 
     useEffect(() => {
         if (activeItemIdProp) {
-            setActiveNoteId(activeItemIdProp);
+            setActiveItemId(activeItemIdProp);
         }
     }, [activeItemIdProp]);
 
@@ -24,14 +24,18 @@ const GroceryItemsList = ({
 
     const setActiveNote = (item: FoodItem): void => {
         selectItem(item);
-        setActiveNoteId(item.id);
+        setActiveItemId(item.id);
     };
 
     const renderItems = (): JSX.Element[] => {
         return arrayOfItems.map((item) => {
             return (
                 <div key={item.id} onClick={(): void => setActiveNote(item)}>
-                    <GroceryItem item={item} deleteNoteItem={deleteNoteItem} />
+                    <GroceryItem
+                        item={item}
+                        deleteNoteItem={deleteNoteItem}
+                        isActive={item.id === activeItemId}
+                    />
                 </div>
             );
         });

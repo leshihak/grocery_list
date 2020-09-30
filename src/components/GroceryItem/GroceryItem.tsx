@@ -6,6 +6,7 @@ import './GroceryItem.scss';
 const GroceryItem = ({
     item,
     deleteNoteItem,
+    isActive,
 }: GroceryItemProps): React.ReactElement => {
     const handleRemoveNoteItem = (
         id: string,
@@ -16,7 +17,11 @@ const GroceryItem = ({
     };
 
     return (
-        <div className='grosery-item'>
+        <div
+            className={
+                isActive ? 'grosery-item grosery-item--active' : 'grosery-item'
+            }
+        >
             <div className='grosery-item__header'>
                 <img
                     src={RemoveImg}

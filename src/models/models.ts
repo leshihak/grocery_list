@@ -29,4 +29,5 @@ export interface GroceryItemsListProps {
 export interface GroceryItemProps {
     item: FoodItem;
     deleteNoteItem: (id: string) => void;
+    isActive: boolean;
 }

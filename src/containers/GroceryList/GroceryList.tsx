@@ -24,10 +24,23 @@ export default class GroceryList extends React.Component<
     public componentDidMount(): void {
         const list = localStorage.getItem('list');
         if (list) {
+            const sortedArray = JSON.parse(list).sort(
+                (
+                    a: { priority: number; name: number },
+                    b: { priority: number; name: number }
+                ) => {
+                    if (a.priority === b.priority) {
+                        if (a.name < b.name) return -1;
+                        if (a.name > b.name) return 1;
+                        return 0;
+                    }
+                    return a.priority > b.priority ? -1 : 1;
+                }
+            );
             this.setState({
                 ...this.state,
-                list: JSON.parse(list),
-                activeItem: JSON.parse(list)[0],
+                list: sortedArray,
+                activeItem: sortedArray[0],
             });
         } else {
             const item = getDefaultItem();
@@ -41,12 +54,21 @@ export default class GroceryList extends React.Component<
             activeItem: item,
         });
     }
+
     private editItem = (objItem: FoodItem) => {
         const list = this.state.list;
         const indexToEdit = list.findIndex((item) => item.id === objItem.id);
         list[indexToEdit] = objItem;
+        const sortedArray = list.sort((a, b) => {
+            if (a.priority === b.priority) {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            }
+            return a.priority > b.priority ? -1 : 1;
+        });
         this.setState({ ...this.state, list }, () =>
-            localStorage.setItem('list', JSON.stringify(this.state.list))
+            localStorage.setItem('list', JSON.stringify(sortedArray))
         );
     };
 
@@ -94,7 +116,8 @@ export default class GroceryList extends React.Component<
         this.setState(
             {
                 ...this.state,
-                list: [...this.state.list, item],
+                list: [item, ...this.state.list],
+                activeItem: item,
             },
             () => localStorage.setItem('list', JSON.stringify(this.state.list))
         );

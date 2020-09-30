@@ -4,6 +4,9 @@
     cursor: pointer;
     padding: 20px;
     margin-top: 20px;
+    &--active {
+        @extend .grosery-item:hover;
+    }
     &:hover {
         background-color: black;
         color: white;
@@ -18,8 +21,8 @@
     }
     &__footer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         font-size: 15px;
-        padding: 10px;
+        padding: 10px 0;
     }
 }
